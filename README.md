@@ -2,7 +2,7 @@
 
 > **Update Terbaru:**
 > ### [KLIK DI SINI UNTUK MELIHAT TUGAS PERTEMUAN 3 (ERD & MIGRATION)](pertemuan3.md)
-
+> ### [KLIK DI SINI UNTUK MELIHAT TUGAS PERTEMUAN 5 (OTORISASI)](pertemuan5.md)
 
 ## Praktikum 2
 
@@ -12,3 +12,8 @@
 ![Tampilan Laravel](ss/register.png)
 ![Tampilan Laravel](ss/About.png)
 
+---------------
+
+Nama: Zahwa Anritia
+NIM : 20230140116
+Program Studi: Teknologi Informasi
