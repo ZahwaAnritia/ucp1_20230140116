@@ -12,8 +12,3 @@
 ![Tampilan Laravel](ss/register.png)
 ![Tampilan Laravel](ss/About.png)
 
----------------
-
-Nama: Zahwa Anritia
-NIM : 20230140116
-Program Studi: Teknologi Informasi
