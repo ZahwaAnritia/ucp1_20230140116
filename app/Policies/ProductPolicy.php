@@ -14,13 +14,12 @@ class ProductPolicy
     {
         //
     }
-    // User hanya boleh edit/update produk miliknya sendiri
     public function update(User $user, Product $product): bool
     {
-        return $user->id === $product->user_id;
+        return $user->id === $product->user_id || $user->role === 'admin';
     }
 
-    // User boleh hapus milik sendiri, tapi ADMIN boleh hapus milik siapa saja
+   
     public function delete(User $user, Product $product): bool
     {
         return $user->id === $product->user_id || $user->role === 'admin';
