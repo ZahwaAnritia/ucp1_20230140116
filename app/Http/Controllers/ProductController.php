@@ -15,11 +15,11 @@ class ProductController extends Controller
         return view('product.index', compact('products'));
     }
 
-    public function create()
-    {
-        $users = User::orderBy('name')->get();
-        return view('product.create', compact('users'));
-    }
+    public function create() {
+    Gate::authorize('manage-product'); // Hanya Admin
+    $users = User::orderBy('name')->get();
+    return view('product.create', compact('users'));
+}
 
     public function store(Request $request)
     {

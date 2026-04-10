@@ -16,12 +16,13 @@ class ProductPolicy
     }
     public function update(User $user, Product $product): bool
     {
-        return $user->id === $product->user_id || $user->role === 'admin';
+      
+        return $user->role === 'admin' && $user->id === $product->user_id;
     }
 
-   
     public function delete(User $user, Product $product): bool
     {
-        return $user->id === $product->user_id || $user->role === 'admin';
+        
+        return $user->role === 'admin' && $user->id === $product->user_id;
     }
 }
