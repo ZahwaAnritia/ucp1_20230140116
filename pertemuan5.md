@@ -20,7 +20,6 @@
 
 ![Tampilan User](ss-prak5/ss6.png)
 
-![Policy Code](ss-prak5/detail.png)
 
 ### 4. Database sebelum ubah role
 ![Tampilan User](ss-prak5/ss3.png)
