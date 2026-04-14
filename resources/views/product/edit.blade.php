@@ -22,7 +22,12 @@
                         </div>
                     </div>
 
-            
+
+                    @if (session('error'))
+                        <div class="mb-4 px-4 py-2 bg-red-500/20 border border-red-500 text-red-500 rounded-lg text-sm">
+                            {{ session('error') }}
+                        </div>
+                    @endif
                     <form id="delete-product-form"action="{{ route('product.delete', $product->id) }}" method="POST">
                         @csrf
                         @method('DELETE')
