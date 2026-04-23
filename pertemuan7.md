@@ -21,3 +21,6 @@
 ![index](ss-prak7/index.png)
 
 ![index](ss-prak7/index1.png)
+
+##### tampilan detail
+![view](ss-prak7/ss.png)
