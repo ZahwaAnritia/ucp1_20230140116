@@ -18,3 +18,6 @@
 ![del product](ss-prak7/deletebutton.png)
 
 ##### Cara Menggunakan Component \resources\views\product\index.blade.php
+![index](ss-prak7/index.png)
+
+![index](ss-prak7/index1.png)
