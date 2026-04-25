@@ -13,7 +13,7 @@ class ProductController extends Controller
 {
     public function index()
     {
-        // JANGAN taruh Gate::authorize di sini agar semua role bisa lihat daftar produk
+        
         $products = Product::with('user')->get();
         return view('product.index', compact('products'));
     }
