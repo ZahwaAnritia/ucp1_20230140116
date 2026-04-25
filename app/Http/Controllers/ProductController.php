@@ -13,14 +13,18 @@ class ProductController extends Controller
 {
     public function index()
     {
+        // JANGAN taruh Gate::authorize di sini agar semua role bisa lihat daftar produk
         $products = Product::with('user')->get();
         return view('product.index', compact('products'));
     }
-
     public function create() {
     Gate::authorize('manage-product'); 
     $users = User::orderBy('name')->get();
-    return view('product.create', compact('users'));
+    $categories = \App\Models\Category::all(); 
+    
+
+    return view('product.create', compact('categories', 'users'));
+
 }
 
     public function store(StoreProductRequest $request)
@@ -61,27 +65,28 @@ class ProductController extends Controller
     {
         Gate::authorize('update', $product);
         $users = User::orderBy('name')->get();
-        return view('product.edit', compact('product', 'users'));
+        $categories = \App\Models\Category::all(); 
+        return view('product.edit', compact('product', 'users', 'categories'));
     }
 
    public function update(Request $request, $id)
     {
         $product = Product::findOrFail($id);
         Gate::authorize('update', $product);
- 
+
         $validated = $request->validate([
             'name' => 'required|string|max:255',
-            'qty' => 'required|integer|min:0',
+            'qty' => 'required|integer|min:0', 
             'price' => 'required|numeric|min:0',
-            'user_id' => 'required|exists:user,id',
+            'category_id' => 'required|exists:category,id',
+            'user_id' => 'required|exists:user,id'
         ]);
 
         try {
             $product->update($validated);
             return redirect()->route('product.index')->with('success', 'Product updated successfully.');
-        } catch (\Illuminate\Database\QueryException $e) {
-           
-            return redirect()->back()->withInput()->with('error', 'Terjadi kesalahan database saat memperbarui produk.');
+        } catch (\Exception $e) {
+            return redirect()->back()->withInput()->with('error', 'Gagal memperbarui produk.');
         }
     }
 

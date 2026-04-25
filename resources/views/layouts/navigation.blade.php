@@ -11,20 +11,29 @@
                 </div>
 
                 <!-- Navigation Links -->
+           
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    
+             
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+
                     
-                    @can('manage-product')
                     <x-nav-link :href="route('product.index')" :active="request()->routeIs('product.*')">
                         {{ __('Product') }}
                     </x-nav-link>
-                    @endcan
-                   
 
+                  
+                    @can('isAdmin')
+                    <x-nav-link :href="route('category.index')" :active="request()->routeIs('category.*')">
+                        {{ __('Category') }}
+                    </x-nav-link>
+                    @endcan
+
+    
                     <x-nav-link :href="route('about')" :active="request()->routeIs('about')">
-                    {{ __('About') }}
+                        {{ __('About') }}
                     </x-nav-link>
                 </div>
             </div>
@@ -88,6 +97,15 @@
             {{ __('Product') }}
         </x-responsive-nav-link>
         @endcan
+        
+
+        {{-- Tambahkan juga di sini untuk tampilan mobile --}}
+        @can('isAdmin')
+        <x-responsive-nav-link :href="route('category.index')" :active="request()->routeIs('category.*')">
+            {{ __('Category') }}
+        </x-responsive-nav-link>
+        @endcan
+    
         
 
         <x-responsive-nav-link :href="route('about')" :active="request()->routeIs('about')">

@@ -15,7 +15,7 @@
                         </svg>
                     </a>
                     <div>
-                        <h2 class="text-2x1 font-bold text-gray-800 dark:text-gray-100 tracking-tight">Add Product
+                        <h2 class="text-2xl font-bold text-gray-800 dark:text-gray-100 tracking-tight">Add Product
                         </h2>
                         <p class="text-sm text-gray-500 dark:text-gray-400 mt-0.5">Fill in the details to add a new 
                             product</p>
@@ -41,6 +41,16 @@
                         @error('name')
                             <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                         @enderror
+                    </div>
+                    {{-- Category --}}
+                    <div class="mb-5">
+                        <label class="block text-sm font-medium text-gray-400 mb-2">Kategori</label>
+                        <select name="category_id" class="w-full bg-[#111827] border border-gray-600 rounded-lg py-3 px-4 text-gray-400 focus:ring-2 focus:ring-indigo-500 outline-none transition">
+                            <option value="">-- Pilih Kategori --</option>
+                            @foreach ($categories as $cat)
+                                <option value="{{ $cat->id }}">{{ $cat->name }}</option>
+                            @endforeach
+                        </select>
                     </div>
 
                     {{-- Quantity & Price --}}
@@ -103,6 +113,8 @@
                             @enderror
                         </div>
                         --}}
+
+                        
 
                         {{-- Action --}}
                         <div class="flex items-center justify-end gap-3 pt-2">

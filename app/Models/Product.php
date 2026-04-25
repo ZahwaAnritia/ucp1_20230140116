@@ -15,12 +15,18 @@ class Product extends Model
         'name', 
         'qty', 
         'price', 
-        'user_id'
+        'user_id',
+        'category_id'
     ];
 
-    // Fungsi ini harus ada DI DALAM kurung kurawal class
+    
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'category_id');
     }
 } // Kurung ini harus jadi yang paling terakhir di file
